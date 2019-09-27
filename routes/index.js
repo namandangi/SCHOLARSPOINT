@@ -10,7 +10,7 @@
         });
 
         router.get('/signup',(req,res)=>{
-            res.send('signup page');
+            res.render('signup');
         });
 
 module.exports = router;
