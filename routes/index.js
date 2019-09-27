@@ -68,4 +68,20 @@
             res.redirect("/login");
          });
 
+         //FAQs
+         router.get('/faqs',(req,res)=>{
+             res.render('faqs');
+         });
+
+         //PRIVACY-POLICY
+         router.get('/privacy',(req,res)=>{
+            res.render('privacy');
+        });
+
+        //T&C
+        router.get('/tnc',(req,res)=>{
+            res.render('termsnc');
+        });
+
+
 module.exports = router;

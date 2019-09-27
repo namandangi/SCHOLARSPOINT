@@ -3,10 +3,12 @@ const passportLocalMongoose       = require('passport-local-mongoose');
 
 var ScholarshipSchema = new mongoose.Schema({
     scholarshipName : String,
-    category : String,
+    scholarshipProvider : String,
+    whoCanApply : [String],
+    benefits : [String],
     portalLink : String,
 });
 
-UserSchema.plugin(passportLocalMongoose);
+ScholarshipSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Scholarship',ScholarshipSchema);
