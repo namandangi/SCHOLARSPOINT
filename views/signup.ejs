@@ -7,7 +7,7 @@
                     <h1 style="font-family:times new roman; text-align: center; color: #660000">SignUp</h1>
                 </div>
             <div class="panel-body">
-            <form>
+            <form action="/signup" method="POST">
                 <div class="form-group">
                 <p>First name:</p>
                 <input type="text" name="fname" class="form-control">
@@ -18,23 +18,27 @@
                 <input type="text" name="sname" class="form-control">
                 </div>                   
                 <div class="form-group">
-                 <p>Email:</p>   <input type="text" class="form-control">
+                 <p>Email:</p>   <input type="text" name="username" class="form-control">
                 </div>
                 <div class="form-group">
+
                         <p>Username:</p>
                         <input type="text" name="uname" class="form-control">
                         </div>
                 <div class="form-group">
-                        <p>Password:</p>   <input type="password" class="form-control">
+                        
+
+                        <p>Password:</p>   <input type="password" name="password" class="form-control">
+
                        </div>
                 <div class="form-group">
-                 <p>Phone Number:</p>   <input type="text" class="form-control">
+                 <p>Phone Number:</p>   <input type="text"name="phone" class="form-control">
                 </div>
 
-                <div>
+                     <div>
                         <p>Birth Date:</p>
                         <input type="date" name="birthdate">
-                        </div>
+                     </div>
 
                 <div class="radio">
                     <p>Gender:</p>
