@@ -11,7 +11,7 @@ const   express                 = require('express'),
 
     
 
-      //  mongoose.connect('mongodb://localhost:27017/sp', {useNewUrlParser: true} );
+        mongoose.connect('mongodb://localhost:27017/sp', {useNewUrlParser: true} );
         app.use(bodyParser.urlencoded({extended: true}));
         app.set("view engine", "ejs");
         app.use(express.static(__dirname + "/public"));
