@@ -6,7 +6,7 @@
             res.render('home');
         });
         router.get('/login',(re,res)=>{
-            res.send('login page');
+            res.render('login');
         });
 
         router.get('/signup',(req,res)=>{
