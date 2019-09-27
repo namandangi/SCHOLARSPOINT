@@ -1,7 +1,7 @@
 
 <% include ./partials/header %>
 <form>
-        <div class="fi">
+        <div>
         <div class="col-md-offset-1 col-md-4">
         Degree
         <select name="Degree">
@@ -28,7 +28,7 @@
         <hr>
         
         
-        <div class="fi">
+        <div>
         <div class="col-md-offset-1 col-md-4">
         Scholarship
         <select name="Scholarship">
@@ -36,7 +36,6 @@
         <option value="means">Means Based Scholarship</option>
         <option value="merit">Merit Based Scholarship</option>
         <option value="need">Need Based Scholarship</option>
-        <option value="international">International Scholarship</option>
         </select> 
         </div>
         
@@ -52,25 +51,34 @@
         
         </form>
 <hr><hr>
+        <% scholarshipData.forEach((data)=>{  %>
+
         <div class="rows">
                 <div class=" col-xs-offset-1 col-xs-10">
                   <div class="card blue-grey darken-1"><center>
                     <div class="card-content white-text">
-                    <h3> <span class="card-title">Knight Visiting Nieman Fellowships 2020
+                    <h3> <span class="card-title"><%= data.scholarshipName %>
                         </span></h3>
-                      <p>Neiman Foundation is inviting applications from journalists, technologists, publishers, programmers, entrepreneurs, media analysts, academics and other research aspirants for Knight Visiting Nieman Fellowships 2020. It is a short-term fellowship that will be carried out in Harvard. The candidates must be able to demonstrate how their works at Harvard and the Nieman Foundation may improve the prospects of journalism's future. At least, 5 fellows will be seleted under this programme who will receive USD 1,350 weekly stipend and other benefits.</p>
+                    <b>  <h4>This Scholarship is provided By : </h4></b>
+                      <p><%=data.scholarshipProvider%></p>
                     </div>
                     <div class="card-action">
-                      <h4>What are the documents required for the Knight Visiting Nieman Fellowships 2020?</h4><br>
-                      <ol >
-                         <li>Resume/Curriculum Vitae (CV)</li><li>Contact details of three professional references</li><li>A 600-words project proposal/essay</li> <br> 
-                      </ol>
+                   <b>   <h4>Who can apply</h4></b>
+                      <ul>
+                      <% data.whoCanApply.forEach((who)=>{ %>
+                        <li><%=who%></li>
+                        <%});%>
+                      </ul>
+                     <b> <h4>What are the benefits</h4></b>
+                        <% data.benefits.forEach((benefit)=>{%>
+                          <ul><li><%=benefit%></li></ul>
+                          <%});%>
                       <a href="https://nieman.slideroom.com/#/login/register?p:49064/">APPLY NOW</a>
                     </div></center>
                   </div>
                 </div>
               </div>
-
+            <%});%>
 
 
 <% include ./partials/footer %> 

@@ -7,6 +7,6 @@ var ScholarshipSchema = new mongoose.Schema({
     portalLink : String,
 });
 
-UserSchema.plugin(passportLocalMongoose);
+ScholarshipSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Scholarship',ScholarshipSchema);
