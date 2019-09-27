@@ -1,6 +1,8 @@
         var   express       = require('express'),
-              router        = express.Router(),
-              User          = require('../models/user');
+              passport      = require('passport')
+              router        = express.Router({mergeParams:true}),
+              User          = require('../models/user'),
+              UserData      = require('../models/userData');
 
         router.get('/',(req,res)=>{
             res.render('home');
@@ -21,7 +23,6 @@
         //SHOW THE SIGNUP FORM
         router.get('/signup',(req,res)=>{
             res.render('signup');
-<<<<<<< HEAD
         });
 
         //HANDLE THE SIGNUP LOGIC
@@ -30,29 +31,38 @@
                 {
                     firstName : req.body.firstName,
                     lastName : req.body.lastName,
-                    email: req.body.email,
+                    username: req.body.username,
+                    password : req.body.password,
                     phone : req.body.phone,
                     dob : req.body.dob,
                     gender : req.body.gender
-
-                });
-            User.register(newUser, req.body.password, function(err, user){
-                if(err){
+                });                
+                console.log(newUser);
+                var newUser1 = new User({username: req.body.username});
+            UserData.create(newUser, (err, user)=>{
+                if(err)
+                {
                     console.log(err);
-                    return res.render("login");
+                    return res.redirect("/signup");
                 }
-                passport.authenticate("local")(req, res, function(){
-                   res.redirect("/"); 
+                else{
+                User.register(newUser1, req.body.password, function(err, user){
+                    if(err){
+                        console.log(err);
+                        return res.redirect("/signup");
+                    }
+                    passport.authenticate("local")(req, res, function(){
+                       res.redirect("/"); 
+                    });
                 });
+            }
             });
-=======
->>>>>>> d576a231ed479066e21ab437d0711654291f02d0
         });
 
         //HANDLE THE LOGOUT LOGIC
         router.get("/logout", function(req, res){
             req.logout();
-            res.redirect("/campgrounds");
+            res.redirect("/login");
          });
 
 module.exports = router;

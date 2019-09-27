@@ -1,3 +1,11 @@
 <h1>
     Scholarships Page !
 </h1>
+
+<% if(!currentUser){ %>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/signup">Sign Up</a></li>
+<% } else { %>
+    <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+    <li><a href="/logout">Logout</a></li>
+<% } %>
