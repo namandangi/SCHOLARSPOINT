@@ -7,18 +7,7 @@
         router.get('/',(req,res)=>{
             res.render('home');
         });
-        //SHOW LOGIN FORM
-        router.get('/login',(re,res)=>{
-            res.render('login');
-        });
 
-        //HANDLE LOGIN LOGIC
-        router.post("/login", passport.authenticate("local", 
-         {
-             successRedirect: "/",
-             failureRedirect: "/login"
-            }), function(req, res){
-        });
 
         //SHOW THE SIGNUP FORM
         router.get('/signup',(req,res)=>{
@@ -58,6 +47,20 @@
             }
             });
         });
+        
+                //SHOW LOGIN FORM
+                router.get('/login',(req,res)=>{
+                    res.render('login');
+                });
+        
+                //HANDLE LOGIN LOGIC
+                router.post("/login", passport.authenticate("local", 
+                 {
+                     successRedirect: "/",
+                     failureRedirect: "/login"
+                    }), function(req, res){
+                        console.log(currentUser);
+                });
 
         //HANDLE THE LOGOUT LOGIC
         router.get("/logout", function(req, res){
