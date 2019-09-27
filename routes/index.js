@@ -21,6 +21,7 @@
         //SHOW THE SIGNUP FORM
         router.get('/signup',(req,res)=>{
             res.render('signup');
+<<<<<<< HEAD
         });
 
         //HANDLE THE SIGNUP LOGIC
@@ -44,6 +45,8 @@
                    res.redirect("/"); 
                 });
             });
+=======
+>>>>>>> d576a231ed479066e21ab437d0711654291f02d0
         });
 
         //HANDLE THE LOGOUT LOGIC
