@@ -231,14 +231,14 @@ background-color:#EACDCA;
       }
       .sh{
         margin-bottom:20px;
-        background-color:#000000;
+        background-color:#cb2027;
         width:100%;
         border-style:solid;
         border-width:10px;
         border-color:#808080;
         padding:15px;
         border-radius:20%;
-        color:#FFD38A;
+        color:#907163;
         font-size:15px;
       }	
       @media screen and (max-width: 1095px) {
