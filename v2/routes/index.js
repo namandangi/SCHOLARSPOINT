@@ -2,10 +2,13 @@ var   express       = require('express'),
 passport      = require('passport')
 router        = express.Router({mergeParams:true}),
 User          = require('../models/user'),
+Scholarship   = require('../models/scholarships'),
+Post          = require('../models/post'),
 UserData      = require('../models/userData');
 
 router.get('/',(req,res)=>{
-res.render('home');
+  req.flash('success','welcome to home page');
+  res.render('home');
 });
 
 
@@ -56,19 +59,39 @@ UserData.create(newUser, (err, user)=>{
   //HANDLE LOGIN LOGIC
   router.post("/login", passport.authenticate("local", 
    {
-       successRedirect: "/",
+       //successRedirect: "/",
        failureRedirect: "/login"
       }), function(req, res){
         req.flash("success","You have successfully logged in !");
-          console.log(currentUser);
+          //console.log(currentUser);
+          res.redirect('/');
   });
 
 //HANDLE THE LOGOUT LOGIC
 router.get("/logout", function(req, res){
 req.logout();
-req.flash("success","You have successfully logged in !");
+req.flash("success","You have successfully logged out !");
 res.redirect("/login");
 });
+
+//SAVE
+router.get('/save/:id',(req,res)=>{
+  Scholarship.findById(req.params.id,(err,fs)=>{
+    Post.update({scholarshipName:fs.scholarshipName,portalLink:fs.portalLink},(err,post)=>{
+      //console.log(post);
+    });
+    console.log((fs.scholarshipName,fs.portalLink));
+  });
+  // postId = req.params.id;
+   //console.log(postId);
+});
+
+//PROFILE
+// router.get('/profile/'+req.user._id,(req,res)=>{
+//   res.render('profile');
+// })
+  
+
 
 //FILTER PAGE
 router.get('/filter',(req,res)=>{
