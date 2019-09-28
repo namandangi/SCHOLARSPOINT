@@ -1,9 +1,12 @@
 .foot {
+  background-color:#2d3d51;
   margin-top:15px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+  width:100%;
+}
+.style1{
+  height:10px;
+  border:0;
+  box-shadow:0 10px 10px -10px #8c8b8b inset;
 }
 .big{
     padding-top:20px;
@@ -18,9 +21,9 @@
 }
 .fa {
   padding: 20px;
-  font-size: 20px;
-  width: 8%;
-  height:8%;
+  font-size: 15px;
+  width: 7%;
+  height:7%;
   text-align: center;
   text-decoration: none;
   margin: 5px 5px;
@@ -50,30 +53,30 @@
   color: white;
 }
 .sidenav {
- margin-top:30px;
+ margin-top:50px;
   height: 100%;
   width: 0;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #D8DBDD;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 100px;
 }
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #2D3D51;
   display: block;
   transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: rgb(105, 31, 89);
 }
 
 .sidenav .closebtn {
@@ -90,10 +93,44 @@ li {
  }
 
 .row{
+  background: url(/images/img2.jpg) no-repeat center;
 	margin-top:50px;
-	margin-bottom:100px;
+  margin-bottom:100px;
+  width:100%;
+  background-size:cover;
 }
+.card {
+  padding-top:10px;
+background-color:#EACDCA;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom:20px;
+}
+.cardtext{
+  font-weight: bold;
+  font-size:20px;
+  color:#3B5998;
+  position: relative;
+
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.containers {
+  right: 0;
+  padding: 16px;
+  background-color:rgb(255,255,255,0.04);
+}
+
 .say{
+  background-color: #242020;
   margin-top:10px;
   margin-bottom:10px;
 }
@@ -135,37 +172,13 @@ li {
     background: palevioletred;
     color: black;
 }
-.style1{
-  height:10px;
-  border:0;
-  box-shadow:0 10px 10px -10px #8c8b8b inset;
-}
+
 .ir{
   width:350px;
-  height:350px;}
+  height:350px;
+  border-radius:50%;
+}
   
-  .card {
-    border-radius:10%;
-  background-color:#F3B54A;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin-bottom:20px;
-  }
-  .cardtext{
-    font-size:20px;
-    color:#3B5998;
-    position: relative;
-
-  }
-  
-  .container {
-    padding: 0 16px;
-  }
-  
-  .container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
   
   
   @media screen and (max-height: 450px) {
@@ -237,4 +250,6 @@ li {
           width:100%;
           font-size:15px;
         }
-      }
+      
+}
+
