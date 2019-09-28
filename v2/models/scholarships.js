@@ -12,12 +12,12 @@ var ScholarshipSchema = new mongoose.Schema({
     scholarshipName : String,
     scholarshipProvider : String,
     whoCanApply : [String],
-    benefits : [String],
-    portalLink : String,
+    benefits : [String],    
     category : {
         name : String,
         categoryName : String
-    }
+    },
+    portalLink : String
 });
 
 ScholarshipSchema.plugin(passportLocalMongoose);

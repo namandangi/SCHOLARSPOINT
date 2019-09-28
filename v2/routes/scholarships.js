@@ -60,16 +60,16 @@ var data =[
 ]    
     data.forEach((seed)=>{
         Scholarship.create(seed,(err,scholarship)=>{
-            if(!err)
-                console.log('saved '+(scholarship.scholarshipName));
+           // if(!err)
+                //console.log('saved '+(scholarship.scholarshipName));
         });
     })
 
 
 router.get('/s',(req,res)=>{
-        var category = req.body;
-        console.log(category);
-        res.render('scholarships',{scholarshipData:data});
+        Scholarship.find({},(err,allScholarships)=>{
+            res.render('scholarships',{scholarshipData:allScholarships});
+        })
     });
     
 
