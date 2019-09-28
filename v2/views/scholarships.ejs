@@ -20,8 +20,8 @@
                         <% data.benefits.forEach((benefit)=>{%>
                           <ul><li><%=benefit%></li></ul>
                           <%});%>
-                      <a href="https://nieman.slideroom.com/#/login/register?p:49064/">APPLY NOW</a>
-                      <a href="/save/<%=data._id%>">Save</a>
+                      <a href="<%=data.portalLink%>">APPLY NOW</a>
+                      <a href='/profile/<%=currentUser._id %>''>Save</a>
                     </div></center></div>
                   </div>
                 </div>
