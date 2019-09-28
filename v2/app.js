@@ -14,7 +14,7 @@ var   express                 = require('express'),
         const path = require('path');
         const webPush = require('web-push');
 
-       // mongoose.connect('mongodb://localhost:27017/sp', {useNewUrlParser: true} );
+        mongoose.connect('mongodb://localhost:27017/sp', {useNewUrlParser: true} );
         app.use(bodyParser.urlencoded({extended: true}));
         app.use(bodyParser.json());
         app.use(express.static(__dirname + "/public"));

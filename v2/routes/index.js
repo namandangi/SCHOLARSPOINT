@@ -89,7 +89,14 @@ res.redirect("/login");
 
 //PROFILE
 router.get('/profile/:id',(req,res)=>{
-  res.render('profile',{});
+  User.findById(req.params.id,(err,user)=>{
+    var nms = user.username;
+    UserData.find({username:nms},(err,data)=>{
+      console.log(nms);
+      res.render('profile',{data : data});
+    });
+  });
+
 })
   
 
