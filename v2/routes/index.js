@@ -59,12 +59,14 @@ UserData.create(newUser, (err, user)=>{
        successRedirect: "/",
        failureRedirect: "/login"
       }), function(req, res){
+        req.flash("success","You have successfully logged in !");
           console.log(currentUser);
   });
 
 //HANDLE THE LOGOUT LOGIC
 router.get("/logout", function(req, res){
 req.logout();
+req.flash("success","You have successfully logged in !");
 res.redirect("/login");
 });
 
