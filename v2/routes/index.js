@@ -96,15 +96,16 @@ router.get('/profile/:id',(req,res)=>{
       res.render('profile',{data : data});
     });
   });
-
 })
   
 
 
 //FILTER PAGE
 router.get('/filter',(req,res)=>{
-  res.render('filter');
-  });
+  Scholarship.find({},(err,allScholarships)=>{
+      res.render('filter',{scholarshipData:allScholarships});
+  })
+});
 
 //FAQs
 router.get('/faqs',(req,res)=>{
