@@ -58,12 +58,12 @@ var data =[
         portalLink : 'http://awards.nrdc.in/'
     }
 ]    
-    data.forEach((seed)=>{
-        Scholarship.create(seed,(err,scholarship)=>{
-           // if(!err)
-                //console.log('saved '+(scholarship.scholarshipName));
-        });
-    })
+    // data.forEach((seed)=>{
+    //     Scholarship.create(seed,(err,scholarship)=>{
+    //        // if(!err)
+    //             //console.log('saved '+(scholarship.scholarshipName));
+    //     });
+    // })
 
 
 router.get('/s',(req,res)=>{

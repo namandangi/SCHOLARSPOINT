@@ -76,11 +76,11 @@ res.redirect("/login");
 
 //SAVE
 router.get('/save/:id',(req,res)=>{
-  Scholarship.findById(req.params.id,(err,foundScholarship)=>{
-    Post.create({foundScholarship},(err,post)=>{
+  Scholarship.findById(req.params.id,(err,fs)=>{
+    Post.update({scholarshipName:fs.scholarshipName,portalLink:fs.portalLink},(err,post)=>{
       //console.log(post);
     });
-    console.log((foundScholarship));
+    console.log((fs.scholarshipName,fs.portalLink));
   });
   // postId = req.params.id;
    //console.log(postId);

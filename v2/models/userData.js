@@ -9,10 +9,12 @@ var UserDataSchema = new mongoose.Schema({
     dob : String,
     gender:String ,
     password : String,
-    post : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'Post'
-    }
+    // post : {
+    //     type : mongoose.Schema.Types.ObjectId,
+    //     ref : 'Post'
+    // }
+    postName : [String],
+    postLink : [String]
 });
 
 UserDataSchema.plugin(passportLocalMongoose);
