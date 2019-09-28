@@ -294,7 +294,7 @@ border-color:#808080;
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
+  background-color: #116466;
 }
 
 .contain:hover .overlay {
@@ -302,8 +302,8 @@ border-color:#808080;
 }
 
 .text {
-  color: white;
-  font-size: 20px;
+  color: #D9B08C;
+  font-size: 25px;
   position: absolute;
   top: 50%;
   left: 50%;
