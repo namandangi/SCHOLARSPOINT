@@ -87,9 +87,9 @@ router.get('/save/:id',(req,res)=>{
 });
 
 //PROFILE
-// router.get('/profile/'+req.user._id,(req,res)=>{
-//   res.render('profile');
-// })
+ router.get('/profile/'+currentUser._id,(req,res)=>{
+   res.render('profile');
+ })
   
 
 
