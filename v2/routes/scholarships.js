@@ -12,7 +12,8 @@ var data =[
                         ],
         benefits : ['get a monthly stipend of INR 12,400 per month for the duration of two years or the duration of the course, whichever is lower.'
         ],
-        portalLink : 'https://portal.aicte-india.org/partnerportal_nv_enu/start.swe?SWEVI=&SWEBHWND=&SWECmd=Refresh&SRN=&SWERF=1&SWEFullRefresh=1&TglPrtclRfrsh=1'        
+        category : {name:'classification', categoryName :'Merit Based'},
+        portalLink : 'https://portal.aicte-india.org/partnerportal_nv_enu/start.swe?SWEVI=&SWEBHWND=&SWECmd=Refresh&SRN=&SWERF=1&SWEFullRefresh=1&TglPrtclRfrsh=1',
     },
     {
         scholarshipName: 'Nirankari Rajmata Scholarship Scheme 2019-20',
@@ -23,6 +24,7 @@ var data =[
                         ],
         benefits : ['The selected scholars will receive some or full amount of their tuition fees. '
         ],
+        category : {name:'classification', categoryName :'Means Based'},
         portalLink : 'https://nirankarifoundation.org/wp-content/uploads/2019/05/Nirankari-Rajmata-Scholarship-Scheme-2019-20.pdf'        
     },
     {
@@ -38,6 +40,7 @@ var data =[
         'NRDC National Innovation Award of the Year: Two awards will be given of INR 5,00,000 each',
         'NRDC National Budding Innovators Award of the Year: Five awards will be given of INR 1,00,000 each'
         ],
+        category : {name:'classification', categoryName :'Merit Based'},
         portalLink : 'http://awards.nrdc.in/'
     },
     {
@@ -50,8 +53,8 @@ var data =[
                         ],
         benefits : ['NRDC National Societal Innovation Award of the Year: Three awards will be given of INR 3,00,000 each',
         'NRDC National Innovation Award of the Year: Two awards will be given of INR 5,00,000 each',
-        'NRDC National Budding Innovators Award of the Year: Five awards will be given of INR 1,00,000 each'
-        ],
+        'NRDC National Budding Innovators Award of the Year: Five awards will be given of INR 1,00,000 each'],
+        category : {name:'classification', categoryName :'Means Based'},
         portalLink : 'http://awards.nrdc.in/'
     }
 ]    
@@ -64,6 +67,8 @@ var data =[
 
 
 router.get('/s',(req,res)=>{
+        var category = req.body;
+        console.log(category);
         res.render('scholarships',{scholarshipData:data});
     });
     

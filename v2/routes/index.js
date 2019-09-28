@@ -68,6 +68,11 @@ req.logout();
 res.redirect("/login");
 });
 
+//FILTER PAGE
+router.get('/filter',(req,res)=>{
+  res.render('filter');
+  });
+
 //FAQs
 router.get('/faqs',(req,res)=>{
 res.render('faqs');

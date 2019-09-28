@@ -7,20 +7,49 @@ const   express                 = require('express'),
         User                    = require('./models/user'),
         passport                = require('passport'),
         LocalStrategy           = require('passport-local'),
+        SendOtp                 = require('sendotp'),
         app                     = express();
 
-    
+        require('dotenv').config({ path: 'variables.env' });
+        const path = require('path');
+        const webPush = require('web-push');
 
-      //  mongoose.connect('mongodb://localhost:27017/sp', {useNewUrlParser: true} );
+        mongoose.connect('mongodb://localhost:27017/sp', {useNewUrlParser: true} );
         app.use(bodyParser.urlencoded({extended: true}));
-        app.set("view engine", "ejs");
+        app.use(bodyParser.json());
         app.use(express.static(__dirname + "/public"));
+        app.use(express.static(path.join(__dirname, 'client')));
         app.use(methodOverride("_method"));
+        app.set("view engine", "ejs");
         //app.use(flash());
         var  indexRoutes         = require('./routes/index');
         var scholarshipRoutes    = require('./routes/scholarships');
 
+        
+
+        const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
+        const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
+    
+        webPush.setVapidDetails('mailto:danginaman55@gmail.com', publicVapidKey, privateVapidKey);
+    
+        const sendOtp = new SendOtp('296255AbRdwOOE5Bb5d8eaf5a');
+        sendOtp.send("919930388026", "PRIIND", "6969", function (error, data) {
+            console.log(data);
+          });
+
+//          sendOtp.setOtpExpiry('90');
+
+          sendOtp.retry("919930388026", false, function (error, data) {
+            console.log(data);
+          });
+
+          sendOtp.verify("919930388026", "6969", function (error, data) {
+            console.log(data); // data object with keys 'message' and 'type'
+            if(data.type == 'success') console.log('OTP verified successfully')
+            if(data.type == 'error') console.log('OTP verification failed')
+          });
           
+    
 
         // PASSPORT CONFIGURATION
             app.use(require('express-session')({
@@ -45,6 +74,20 @@ const   express                 = require('express'),
 
         app.use('/',indexRoutes);
         app.use(scholarshipRoutes);
+
+        app.post('/subscribe', (req, res) => {
+            const subscription = req.body
+      
+            res.status(201).json({});
+      
+            const payload = JSON.stringify({
+              title: 'Push notifications with Service Workers',
+            });
+      
+            webPush.sendNotification(subscription, payload)
+              .catch(error => console.error(error));
+          });
+      
         
         // app.get('*',(req,res)=>{
         //     res.redirect('/');
