@@ -75,21 +75,22 @@ res.redirect("/login");
 });
 
 //SAVE
-router.get('/save/:id',(req,res)=>{
-  Scholarship.findById(req.params.id,(err,fs)=>{
-    Post.update({scholarshipName:fs.scholarshipName,portalLink:fs.portalLink},(err,post)=>{
-      //console.log(post);
-    });
-    console.log((fs.scholarshipName,fs.portalLink));
-  });
-  // postId = req.params.id;
-   //console.log(postId);
-});
+// router.get('/save/:id',(req,res)=>{
+//   Scholarship.findById(req.params.id,(err,fs)=>{
+//    var singleSname = fs.scholarshipName;
+//     Post.findOneAndUpdate(fs.scholarshipName,fs.scholarshipName.push(singleSname),(err,post)=>{
+//       console.log(post);
+//     });
+//     console.log((fs.scholarshipName,fs.portalLink));
+//   });
+//   // postId = req.params.id;
+//    //console.log(postId);
+// });
 
 //PROFILE
-// router.get('/profile/'+req.user._id,(req,res)=>{
-//   res.render('profile');
-// })
+router.get('/profile/:id',(req,res)=>{
+  res.render('profile');
+})
   
 
 
