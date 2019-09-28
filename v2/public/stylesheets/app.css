@@ -99,6 +99,13 @@ li {
   width:100%;
   background-size:cover;
 }
+.row1{
+  background-color: #242020;
+	margin-top:50px;
+  margin-bottom:100px;
+  width:100%;
+  background-size:cover;
+}
 .card {
   padding-top:10px;
 background-color:#EACDCA;
