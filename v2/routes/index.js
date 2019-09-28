@@ -89,7 +89,7 @@ res.redirect("/login");
 
 //PROFILE
 router.get('/profile/:id',(req,res)=>{
-  res.render('profile');
+  res.render('profile',{});
 })
   
 
